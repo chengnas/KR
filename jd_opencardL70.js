@@ -1,26 +1,26 @@
 /*
-1.24~2.14 联合开卡 
+2.12~3.8 联合开卡 
 新增开卡脚本，一次性脚本
 
 第一个账号助力作者 其他依次助力CK1
 第一个CK失效会退出脚本
 
 ————————————————
-入口：[ 1.24~2.14 联合开卡 (https://jinggengjcq-isv.isvjcloud.com/fronth5/#/pages/unitedCardNew20220124/unitedCardNew20220124?actId=29c257bced_220124)]
+入口：[ 2.12~3.8 联合开卡 (https://mpdz3-isv.isvjcloud.com/fronth5/#/pages/unitedCardNew20220212/unitedCardNew20220212?actId=628b293b355c42e39d5fea6f583e_20220212)]
 
 请求太频繁会被黑ip
 过10分钟再执行
 
 
-cron:50 0,13 24-31,1-14 1,2 *
+cron:40 0,12 12-28,1-8 2,3 *
 ============Quantumultx===============
 [task_local]
-#1.24~2.14 联合开卡
-50 0,13 24-31,1-14 1,2 * jd_opencardL62.js, tag=1.24~2.14 联合开卡, enabled=true
+#2.12~3.8 联合开卡
+40 0,12 12-28,1-8 2,3 * jd_opencardL70.js, tag=2.12~3.8 联合开卡, enabled=true
 
 */
 
-const $ = new Env('1.24~2.14 联合开卡');
+const $ = new Env('2.12~3.8 联合开卡');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 
@@ -53,10 +53,10 @@ let activityCookie =''
   // return
   $.appkey = '51B59BB805903DA4CE513D29EC448375'
   $.userId = '10299171'
-  $.actId = '29c257bced_220124'
+  $.actId = '628b293b355c42e39d5fea6f583e_20220212'
   $.MixNicks = ''
   $.inviteNick = 'k1Nobb+P0er+C2sysxnx/P2KELO9izRVpwCyqu0eqVZ5aW7RHzlMobrzJ/e9r/uf'
-  console.log(`活动地址:https://jinggengjcq-isv.isvjcloud.com/fronth5/#/pages/unitedCardNew20220124/unitedCardNew20220124?actId=29c257bced_220124`)
+  console.log(`活动地址:https://mpdz3-isv.isvjcloud.com/fronth5/#/pages/unitedCardNew20220212/unitedCardNew20220212?actId=628b293b355c42e39d5fea6f583e_20220212`)
   console.log(`请自行测试有水无水。`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
@@ -182,7 +182,7 @@ async function run() {
 
 async function takePostRequest(type) {
   if($.outFlag) return
-  let domain = 'https://jinggengjcq-isv.isvjcloud.com';
+  let domain = 'https://mpdz3-isv.isvjcloud.com';
   let body = ``;
   let method = 'POST'
   let admJson = ''
@@ -397,8 +397,8 @@ function getPostRequest(url, body, method="POST") {
     "User-Agent": $.UA,
     "X-Requested-With": "XMLHttpRequest"
   }
-  if(url.indexOf('https://jinggengjcq-isv.isvjcloud.com') > -1){
-    headers["Origin"] = `https://jinggengjcq-isv.isvjcloud.com`
+  if(url.indexOf('https://mpdz3-isv.isvjcloud.com') > -1){
+    headers["Origin"] = `https://mpdz3-isv.isvjcloud.com`
     headers["Content-Type"] = `application/json; charset=utf-8`
     delete headers["Cookie"]
   }
